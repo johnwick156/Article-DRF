@@ -2,6 +2,13 @@ from rest_framework import serializers
 
 from .models import Article
 
+class ArticleSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Article
+        fields = '__all__'
+
+
+'''
 class ArticleSerializer(serializers.Serializer):
     title = serializers.CharField(max_length=100)
     author = serializers.CharField(max_length=50)
@@ -18,3 +25,4 @@ class ArticleSerializer(serializers.Serializer):
         instance.date = validated_data.get('date', instance.date)
         instance.save()
         return instance
+'''
