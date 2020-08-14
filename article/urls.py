@@ -9,5 +9,7 @@ urlpatterns = [
     path('article/', views.ArticleAPIView.as_view(), name="classApi-list"),
     path('detail/<int:id>/', views.ArrticleApiDetails.as_view(), name="classApi-detail"),
 
+    path('generic/articles/', views.GenericAPIView.as_view(), name="GenericAPIView-list"),
+    path('generic/articles/<int:id>/', views.GenericAPIView.as_view(), name="GenericAPIView-details"),
 
 ]
