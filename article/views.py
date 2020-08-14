@@ -14,7 +14,18 @@ from rest_framework import viewsets
 from .models import Article
 from .serializers import ArticleSerializer
 
+class ArticleViewSet(viewsets.ModelViewSet):
+    serializer_class = ArticleSerializer
+    queryset = Article.objects.all()
 
+'''
+class ArticleViewSet(viewsets.GenericViewSet, mixins.ListModelMixin, mixins.CreateModelMixin,
+        mixins.RetrieveModelMixin, mixins.UpdateModelMixin, mixins.DestroyModelMixin):
+    serializer_class = ArticleSerializer
+    queryset = Article.objects.all()
+'''
+
+'''
 class ArticleViewSet(viewsets.ViewSet):
 
     def list(self, request):
@@ -47,7 +58,7 @@ class ArticleViewSet(viewsets.ViewSet):
         article = get_object_or_404(Article, pk=pk)
         article.delete()
         return Response(status=status.HTTP_204_NO_CONTENT)
-
+'''
 
 
 class GenericAPIView(generics.GenericAPIView, mixins.ListModelMixin, mixins.CreateModelMixin,
